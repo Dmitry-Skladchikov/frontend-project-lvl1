@@ -1,4 +1,4 @@
-import * as game from './index.js';
+import * as game from '../index.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
