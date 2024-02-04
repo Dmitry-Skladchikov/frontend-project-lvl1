@@ -8,7 +8,7 @@ export const getRandomNumber = (min, max) => Math.round(Math.random() * (max - m
 
 export const userAnswer = () => readLineSync.question('Your answer: ');
 
-export const question = (num) => console.log(`Question: ${num}`);
+export const question = (arg) => console.log(`Question: ${arg}`);
 
 // переменная задает количество раундов в игре
 let numberOfRounds = 3;
@@ -38,4 +38,15 @@ export const finalMessage = (name) => {
   const isFinalRound = numberOfRounds === 0;
   const message = (isFinalRound && lastAnswerIsCorrect) ? `Congratulations, ${name}` : `Let's try again, ${name}`;
   return message;
+};
+
+// возвращает рандомый элемент переданного массива
+export const randomElement = (arr) => {
+  const lengthOFArr = arr.length;
+  const min = 0;
+  const max = lengthOFArr - 1;
+
+  const randomInedex = Math.round(Math.random() * (max - min) + min);
+
+  return arr[randomInedex];
 };
