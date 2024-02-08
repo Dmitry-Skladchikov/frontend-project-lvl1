@@ -36,7 +36,7 @@ export const startsRound = () => {
 // формирует сообщение по итогу игры
 export const finalMessage = (name) => {
   const isFinalRound = numberOfRounds === 0;
-  const message = (isFinalRound && lastAnswerIsCorrect) ? `Congratulations, ${name}` : `Let's try again, ${name}`;
+  const message = (isFinalRound && lastAnswerIsCorrect) ? `Congratulations, ${name}!` : `Let's try again, ${name}!`;
   return message;
 };
 
