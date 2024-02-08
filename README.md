@@ -6,3 +6,4 @@
 Brain-even - https://asciinema.org/a/635929
 Brain-calc - https://asciinema.org/a/636292
 Brain-gcd - https://asciinema.org/a/636575
+Brain-progression -  https://asciinema.org/a/637065
