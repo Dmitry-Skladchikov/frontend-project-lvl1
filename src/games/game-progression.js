@@ -33,7 +33,8 @@ const gameProgression = () => {
   do {
     const progressionWidth = game.getRandomNumber(5, 10);
     const step = game.getRandomNumber(3, 9);
-    const hiddenIndex = game.getRandomNumber(0, progressionWidth);
+    const lastIndex = progressionWidth - 1;
+    const hiddenIndex = game.getRandomNumber(0, lastIndex);
 
     // формируем массив
     const progression = giveProgression(progressionWidth, step);
