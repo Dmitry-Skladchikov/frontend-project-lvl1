@@ -22,7 +22,7 @@ export const isCorrectAnswer = (answer, expexted) => {
     console.log('Correctt!');
   } else {
     lastAnswerIsCorrect = false;
-    console.log(`${answer} is wrong answer ;(. Correct answer was ${expexted}`);
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expexted}'.`);
   }
   return answer === expexted;
 };
