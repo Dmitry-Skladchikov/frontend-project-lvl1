@@ -3,88 +3,100 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ccb9e9df1975ff8e4272/maintainability)](https://codeclimate.com/github/Dmitry-Skladchikov/frontend-project-lvl1/maintainability)
 
-# Игры разума
+# Brain games
 
-«Игры разума» — набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти ее заново.
+“Brain games” is a set of five console games built on the principle of popular mobile applications for brain training. Each game asks questions that must be answered correctly. After three correct answers, the game is considered completed. Wrong answers end the game and prompt you to play it again.
 
-Игры:
-- Определение четного числа.
-- Определение простого числа.
-- Калькулятор. Арифметические выражения, которые необходимо вычислить.
-- Прогрессия. Поиск пропущенных чисел в последовательности чисел.
-- Определение наибольшего общего делителя.
+Games:
+- Determination of an even number.
+- Definition of a prime number.
+- Calculator. Arithmetic expressions to be evaluated.
+- Progression. Finding missing numbers in a sequence of numbers.
+- Determination of the greatest common divisor.
 
-## Установка
+## Installation
 
+### Cloning the project
+```
+git clone https://github.com/Dmitry-Skladchikov/frontend-project-lvl1.git
+```
+
+### Install dependencies in the project folder
+```
+npm ci
+```
+
+### Install the package on the system
 ```
 sudo npm link
 ```
-## Игра: "Проверка на четность"
 
- Игроку показывается случайное число. Ему нужно ответить **yes**, если число чётное, или **no** — если нечётное.
+## Game: "Parity check"
 
-### Команда для запуска игры
+ The player is shown a random number. He needs to answer **yes** if the number is even, or **no** if it is odd.
+
+### Command to start the game
 
 ```
 brain-even
 ```  
 
-### Ссылка на пример игрового процесса
+### Example gameplay
 
-Brain-even - https://asciinema.org/a/635929
+[![asciicast](https://asciinema.org/a/635929.svg)](https://asciinema.org/a/635929)
 
-## Игра: "Калькулятор"
+## Game: "Calculator"
 
-Игроку показывается случайное математическое выражение, которое нужно вычислить и записать правильный ответ.
+The player is shown a random mathematical expression that must be calculated and the correct answer written down.
 
-### Команда для запуска игры
+### Command to start the game
 
 ```
 brain-calc
 ```  
 
-### Ссылка на пример игрового процесса
+### Example gameplay
 
-Brain-calc - https://asciinema.org/a/636292
+[![asciicast](https://asciinema.org/a/636292.svg)](https://asciinema.org/a/636292)
 
-## Игра: "НОД"
+## Game: "JCD"
 
-Игроку показывается два случайных числа. Необходимо вычислить и ввести наибольший общий делитель этих чисел.
+The player is shown two random numbers. It is necessary to calculate and enter the greatest common divisor of these numbers.
 
-### Команда для запуска игры
+### Command to start the game
 
 ```
 brain-gcd
 ```  
 
-### Ссылка на пример игрового процесса
+### Example gameplay
 
-Brain-gcd - https://asciinema.org/a/636575
+[![asciicast](https://asciinema.org/a/636575.svg)](https://asciinema.org/a/636575)
 
-## Игра: "Арифметическая прогрессия"
+## Game: "Arithmetic progression"
 
-Игроку показывается ряд чисел, образующий арифметическую прогрессию. Необходимо отгадать скрытое число.
+The player is shown a series of numbers forming an arithmetic progression. You need to guess the hidden number.
 
-### Команда для запуска игры
+### Command to start the game
 
 ```
 brain-progression
 ```  
 
-### Ссылка на пример игрового процесса
+### Example gameplay
 
-Brain-progression -  https://asciinema.org/a/637065
+[![asciicast](https://asciinema.org/a/637065.svg)](https://asciinema.org/a/637065)
 
-## Игра: "Простое ли число?"
+## Game: "Is the number prime?"
 
-Игроку показывается случайное число. Ему нужно ответить **yes**, если число простое, или **no** — если нет.
+The player is shown a random number. He needs to answer **yes** if the number is prime, or **no** if not.
 
-### Команда для запуска игры
+### Command to start the game
 
 ```
 brain-prime
 ```  
 
-### Ссылка на пример игрового процесса
+### Example gameplay
 
-Brain-prime - https://asciinema.org/a/637075
+[![asciicast](https://asciinema.org/a/637075.svg)](https://asciinema.org/a/637075)
