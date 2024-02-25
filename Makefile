@@ -25,4 +25,4 @@ brain-prime:
 brain-progression:
 	node ./bin/brain-progression.js
 
-.PHONY: test
+
