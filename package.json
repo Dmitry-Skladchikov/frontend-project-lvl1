@@ -11,7 +11,6 @@
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
   },
-  "scripts": {},
   "author": "Dmitry Skladchikov",
   "license": "ISC",
   "dependencies": {
