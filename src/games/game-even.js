@@ -1,28 +1,17 @@
-import * as game from '../index.js';
+import runEngine from '../index.js';
+import getRandomInRange from '../utils.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
+const generateRound = () => {
+  const currentNumber = getRandomInRange(1, 20);
+  const answer = currentNumber % 2 === 0 ? 'yes' : 'no';
+
+  return [`${currentNumber}`, answer];
+};
+
 const gameEven = () => {
-  const name = game.userName();
-  console.log(game.playerGreeting(name, rules));
-
-  let isCorrect = true;
-  let startsNewRound = true;
-
-  do {
-    const currentRundomNumber = game.getRandomNumber(1, 20);
-    const isNumEven = currentRundomNumber % 2 === 0;
-    const expextedAnswer = isNumEven ? 'yes' : 'no';
-
-    game.question(currentRundomNumber);
-
-    const userAnswer = game.userAnswer();
-
-    isCorrect = game.isCorrectAnswer(userAnswer, expextedAnswer);
-    startsNewRound = game.startsRound();
-  } while (isCorrect && startsNewRound);
-
-  console.log(game.finalMessage(name));
+  runEngine(rules, generateRound);
 };
 
 export default gameEven;
