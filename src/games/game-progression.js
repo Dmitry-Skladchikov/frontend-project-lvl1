@@ -1,10 +1,9 @@
-import * as game from '../index.js';
-
-const rules = 'What number is missing in the progression?';
+import runEngine from '../index.js';
+import getRandomInRange from '../utils.js';
 
 const giveProgression = (width, step) => {
   const arr = [];
-  const firstNum = game.getRandomNumber(1, 10);
+  const firstNum = getRandomInRange(1, 10);
   arr[0] = firstNum;
 
   for (let i = 1; i < width; i += 1) {
@@ -15,46 +14,28 @@ const giveProgression = (width, step) => {
   return arr;
 };
 
-const formForDisplay = (arr, hiddenIndex) => {
-  const newArr = arr;
+const hidesTheElement = (arr, hiddenIndex) => {
+  const newArr = [...arr];
   newArr[hiddenIndex] = '..';
   const strForDisplay = newArr.join(' ');
 
   return strForDisplay;
 };
 
-const gameProgression = () => {
-  const name = game.userName();
-  console.log(game.playerGreeting(name, rules));
+const generateRound = () => {
+  const progressionWidth = getRandomInRange(5, 10);
+  const progressionStep = getRandomInRange(3, 9);
+  const hiddenElementIndex = getRandomInRange(0, progressionWidth - 1);
 
-  let isCorrect = true;
-  let startsNewRound = true;
+  const progression = giveProgression(progressionWidth, progressionStep);
 
-  do {
-    const progressionWidth = game.getRandomNumber(5, 10);
-    const step = game.getRandomNumber(3, 9);
-    const lastIndex = progressionWidth - 1;
-    const hiddenIndex = game.getRandomNumber(0, lastIndex);
+  const question = hidesTheElement(progression, hiddenElementIndex);
+  const answer = String(progression[hiddenElementIndex]);
 
-    // формируем массив
-    const progression = giveProgression(progressionWidth, step);
-
-    // получаем элемент под индексом для скрытия
-    const expextedAnswer = String(progression[hiddenIndex]);
-
-    // формируем строку для вывода в консоль
-    const progressionForDisplay = formForDisplay(progression, hiddenIndex);
-
-    // выводим полученую строку пользователю
-    game.question(`${progressionForDisplay}`);
-
-    const userAnswer = game.userAnswer();
-
-    isCorrect = game.isCorrectAnswer(userAnswer, expextedAnswer);
-    startsNewRound = game.startsRound();
-  } while (isCorrect && startsNewRound);
-
-  console.log(game.finalMessage(name));
+  return [question, answer];
 };
 
-export default gameProgression;
+export default () => {
+  const rules = 'What number is missing in the progression?';
+  runEngine(rules, generateRound);
+};

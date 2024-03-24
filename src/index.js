@@ -1,11 +1,10 @@
 import readLineSync from 'readline-sync';
-import { playerGreeting, getUserName } from './cli.js';
+import playerGreeting from './cli.js';
 
 const roundsCount = 3;
 
 const runEngine = (rules, generateRound) => {
-  playerGreeting();
-  const name = getUserName();
+  const name = playerGreeting();
   console.log(rules);
 
   for (let i = 0; i < roundsCount; i += 1) {

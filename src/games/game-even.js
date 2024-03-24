@@ -1,17 +1,14 @@
 import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
-const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-
 const generateRound = () => {
-  const currentNumber = getRandomInRange(1, 20);
-  const answer = currentNumber % 2 === 0 ? 'yes' : 'no';
+  const question = getRandomInRange(1, 20);
+  const answer = question % 2 === 0 ? 'yes' : 'no';
 
-  return [`${currentNumber}`, answer];
+  return [question, answer];
 };
 
-const gameEven = () => {
+export default () => {
+  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
   runEngine(rules, generateRound);
 };
-
-export default gameEven;

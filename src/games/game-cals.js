@@ -1,53 +1,36 @@
-import * as game from '../index.js';
+import runEngine from '../index.js';
+import getRandomInRange from '../utils.js';
 
-const rules = 'What is the result of the expression?';
+const getRandomOperators = () => {
+  const operators = ['+', '-', '*'];
+  return operators[getRandomInRange(0, operators.length - 1)];
+};
 
-const giveAnswer = (firstNum, secondNum, operator) => {
-  let answer = 0;
+const calculation = (num1, num2, operator) => {
   switch (operator) {
     case '+':
-      answer = firstNum + secondNum;
-      break;
-
+      return num1 + num2;
     case '-':
-      answer = firstNum - secondNum;
-      break;
-
+      return num1 - num2;
     case '*':
-      answer = firstNum * secondNum;
-      break;
-
+      return num1 * num2;
     default:
-      break;
+      throw new Error(`Invalid operator - ${operator}`);
   }
-  return String(answer);
 };
 
-const gameCalc = () => {
-  const name = game.userName();
-  console.log(game.playerGreeting(name, rules));
+const generateRound = () => {
+  const num1 = getRandomInRange(0, 10);
+  const num2 = getRandomInRange(0, 10);
+  const operator = getRandomOperators();
 
-  const operators = ['+', '-', '*'];
+  const question = `${num1} ${operator} ${num2}`;
+  const answer = String(calculation(num1, num2, operator));
 
-  let isCorrect = true;
-  let startsNewRound = false;
-
-  do {
-    const firstOPerand = game.getRandomNumber(1, 10);
-    const secondOPerand = game.getRandomNumber(1, 10);
-    const operator = game.randomElement(operators);
-    const expectedAnswer = giveAnswer(firstOPerand, secondOPerand, operator);
-
-    game.question(`${firstOPerand} ${operator} ${secondOPerand}`);
-    const userAnswer = game.userAnswer();
-
-    isCorrect = game.isCorrectAnswer(userAnswer, expectedAnswer);
-    startsNewRound = game.startsRound();
-  } while (isCorrect && startsNewRound);
-
-  console.log(game.finalMessage(name));
+  return [question, answer];
 };
 
-export default gameCalc;
-
-// добавить в бин эту игру, так же package.json
+export default () => {
+  const rules = 'What is the result of the expression?';
+  runEngine(rules, generateRound);
+};
