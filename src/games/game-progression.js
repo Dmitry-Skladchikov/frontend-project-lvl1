@@ -1,36 +1,27 @@
 import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
-const giveProgression = (width, step) => {
-  const arr = [];
-  const firstNum = getRandomInRange(1, 10);
-  arr[0] = firstNum;
+const generateProgression = (start, step, length) => {
+  const progression = [];
 
-  for (let i = 1; i < width; i += 1) {
-    const element = arr[i - 1] + step;
-    arr[i] = element;
+  for (let i = 0; i < length; i += 1) {
+    progression.push(start + step * i);
   }
 
-  return arr;
-};
-
-const hidesTheElement = (arr, hiddenIndex) => {
-  const newArr = [...arr];
-  newArr[hiddenIndex] = '..';
-  const strForDisplay = newArr.join(' ');
-
-  return strForDisplay;
+  return progression;
 };
 
 const generateRound = () => {
   const progressionWidth = getRandomInRange(5, 10);
   const progressionStep = getRandomInRange(3, 9);
-  const hiddenElementIndex = getRandomInRange(0, progressionWidth - 1);
+  const firstNumber = getRandomInRange(1, 10);
+  const hiddenIndex = getRandomInRange(0, progressionWidth - 1);
 
-  const progression = giveProgression(progressionWidth, progressionStep);
+  const progression = generateProgression(firstNumber, progressionStep, progressionWidth);
 
-  const question = hidesTheElement(progression, hiddenElementIndex);
-  const answer = String(progression[hiddenElementIndex]);
+  const answer = String(progression[hiddenIndex]);
+  progression[hiddenIndex] = '..';
+  const question = progression.join(' ');
 
   return [question, answer];
 };
